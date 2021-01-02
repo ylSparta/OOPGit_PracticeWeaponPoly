@@ -4,7 +4,7 @@ using System.Text;
 
 namespace WeaponPolymorphism
 {
-    public class LaserGun: Weapon
+    public class LaserGun: Weapon, IShootable
     {
         public LaserGun() { }
 

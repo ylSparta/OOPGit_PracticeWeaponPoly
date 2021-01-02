@@ -14,39 +14,27 @@ namespace WeaponPolymorphism
             _brand = brand;
         }
 
-        public string Shoot()
+        public virtual string Shoot()
         {
-            return null;
-        }
-
-        public override string ToString()
-        {
-            return $"This is a {_brand}";
-
+            return $"Shooting a {ToString()}";
         }
 
 
         static void Main(string[] args)
         {
-            List<Weapon> Inventory = new List<Weapon>();
+            List<IShootable> Inventory = new List<IShootable>();
             WaterPistol wap = new WaterPistol("Meg The Stallion");
             Inventory.Add(wap);
-            if (Inventory.Contains(wap))
-            {
-                Console.WriteLine(wap.Shoot());
-            }
             LaserGun zap = new LaserGun("Heat Ray 3000");
             Inventory.Add(zap);
-            if (Inventory.Contains(zap))
-            {
-                Console.WriteLine(zap.Shoot());
+            foreach (var item in Inventory)
+            {   
+                Console.WriteLine(item.Shoot());
             }
 
-            foreach (var item in Inventory)
-            {
-                Console.WriteLine(item.ToString());
-            }
 
         }
+
+
     }
 }
